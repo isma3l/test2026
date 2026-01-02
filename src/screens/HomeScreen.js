@@ -1,23 +1,13 @@
-import { StyleSheet, Text, ScrollView, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Input } from '../components/Input';
 
 export function HomeScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
-      <KeyboardAwareScrollView
-        contentContainerStyle={styles.content}
-        enableOnAndroid={true}
-      >
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          keyboardShouldPersistTaps="handled"
-        >
-          <View style={styles.centerContent}>
-            <Text>Welcome to the Home Screen!</Text>
-          </View>
-        </ScrollView>
-      </KeyboardAwareScrollView>
+      <ScrollView keyboardShouldPersistTaps="handled" style={styles.content}>
+        <Input />
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -27,15 +17,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1,
-    justifyContent: 'center',
     backgroundColor: 'white',
     padding: 16,
-  },
-  centerContent: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  scrollContent: {
-    flexGrow: 1,
   },
 });
